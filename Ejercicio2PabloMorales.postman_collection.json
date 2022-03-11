@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "21f5e243-2212-4f19-97bb-69885ff9c62f",
+		"name": "Ejercicio2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EURO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"pm.test(\"Tiempo de respuesta debajo de 2500ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"pm.test(\"Status es success\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"pm.test(\"Tamaño de la respuesta igual a 2.35\", () => {",
+							"    pm.expect(pm.response.responseSize).to.be.below(1718);",
+							"});",
+							"pm.test(\"Unidad de medida es Pesos\", () => {",
+							"  const responseJson = pm.response.json();",
+							"  pm.expect(responseJson.unidad_medida).to.eql(\"Pesos\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mindicador.cl/api/euro",
+					"protocol": "https",
+					"host": [
+						"mindicador",
+						"cl"
+					],
+					"path": [
+						"api",
+						"euro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UF",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"pm.test(\"Tiempo de respuesta debajo de 500ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"pm.test(\"Status es success\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"pm.test(\"Tamaño de la respuesta igual a 2.43\", () => {",
+							"    pm.expect(pm.response.responseSize).to.be.below(1796);",
+							"});",
+							"pm.test(\"Unidad de medida es Pesos\", () => {",
+							"  const responseJson = pm.response.json();",
+							"  pm.expect(responseJson.unidad_medida).to.eql(\"Pesos\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mindicador.cl/api/uf",
+					"protocol": "https",
+					"host": [
+						"mindicador",
+						"cl"
+					],
+					"path": [
+						"api",
+						"uf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
