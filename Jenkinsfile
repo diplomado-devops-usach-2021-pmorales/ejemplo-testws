@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Test WS') {
-            steps {ll
+            steps {
                 sh "newman run Ejercicio2PabloMorales.postman_collection.json"
             }
         }
